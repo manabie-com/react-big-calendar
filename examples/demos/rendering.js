@@ -40,7 +40,7 @@ const customSlotPropGetter = date => {
 }
 
 const ColoredEventWrapper = ({ children, event }) => {
-  return React.cloneElement(Children.only(children), {
+  return React.cloneElement(children, {
     style: {
       ...children.style,
       backgroundColor: event.allDay ? 'lightBlue' : 'transparent',
@@ -80,8 +80,8 @@ let Rendering = ({ localizer }) => {
         event: Event,
         eventWrapper: ColoredEventWrapper,
         month: {
-          dateHeader: TesterHeader,
-          dateFooter: TesterFooter,
+          dateHeader: CalendarHeader,
+          dateFooter: CalendarFooter,
         },
         // agenda: {
         //   event: EventAgenda,
