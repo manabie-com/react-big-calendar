@@ -5,10 +5,7 @@ import events from '../events'
 function Event({ event }) {
   return (
     <span style={{ color: 'black' }}>
-      <strong>
-        {event.allDay ? 'ALL' : 'NOT ALL'}
-        {event.title}
-      </strong>
+      <strong>{event.title}</strong>
       {event.desc && ':  ' + event.desc}
     </span>
   )
