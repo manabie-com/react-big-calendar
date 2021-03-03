@@ -43,7 +43,6 @@ const customSlotPropGetter = date => {
 }
 
 const ColoredEventWrapper = ({ children, event }) => {
-  console.log()
   return React.cloneElement(Children.only(children), {
     style: {
       ...children.style,
@@ -52,10 +51,10 @@ const ColoredEventWrapper = ({ children, event }) => {
     },
   })
 }
-const TesterHeader = ({ label }) => {
+const CalendarHeader = ({ label }) => {
   return <div>{label}</div>
 }
-const TesterFooter = ({ label }) => {
+const CalendarFooter = ({ label }) => {
   return (
     <div style={{ textAlign: 'center' }}>
       <button>Add Event</button>
