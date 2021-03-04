@@ -191,6 +191,18 @@ export interface Formats {
   eventTimeRangeEndFormat?: DateRangeFormatFunction
 }
 
+export interface DateHeaderProps {
+  label: string
+  date: Date
+  isOffRange: boolean
+}
+
+export interface DateFooterProps {
+  label: string
+  date: Date
+  isOffRange: boolean
+}
+
 export interface HeaderProps {
   date: Date
   label: string
@@ -230,8 +242,8 @@ export interface Components<
   }
   month?: {
     header?: React.ComponentType
-    dateHeader?: React.ComponentType
-    dateFooter?: React.ComponentType
+    dateHeader?: React.ComponentType<DateHeaderProps>
+    dateFooter?: React.ComponentType<DateFooterProps>
     event?: React.ComponentType<EventProps<TEvent>>
   }
   /**
