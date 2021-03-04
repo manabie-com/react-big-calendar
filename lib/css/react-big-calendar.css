@@ -323,6 +323,12 @@ button.rbc-input::-moz-focus-inner {
   border-top: 1px solid #ddd;
 }
 
+.rbc-row-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 .rbc-date-cell {
   flex: 1 1 0;
   min-width: 0;
