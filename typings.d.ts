@@ -21,6 +21,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 import { Validator } from 'prop-types'
+import React, { ReactElement } from 'react'
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
@@ -295,6 +296,9 @@ export interface EventWrapperProps<TEvent extends object = Event> {
   label: string
   continuesEarlier: boolean
   continuesLater: boolean
+
+  // I actually do not know how this works but it is necessary to implement event wrapper correctly.
+  child: ReactElement
 }
 
 export interface Messages {
