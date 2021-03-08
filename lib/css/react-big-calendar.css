@@ -332,7 +332,6 @@ button.rbc-input::-moz-focus-inner {
 .rbc-date-cell {
   flex: 1 1 0;
   min-width: 0;
-  padding-right: 5px;
   text-align: right;
 }
 .rbc-date-cell.rbc-now {
