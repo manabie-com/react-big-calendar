@@ -64,7 +64,7 @@ class DateContentRow extends React.Component {
     // When the vertical space is limited in the future, and the events row overflows the date,
     // Consider parameterize it to control from the outside of this library
     // or change CSS to make sure this calculation always work as expected
-    const MINIMUM_EVENTS_ROW = 5
+    const MINIMUM_EVENTS_ROW = 4
     const result = Math.max(
       Math.floor(eventSpace / eventHeight),
       MINIMUM_EVENTS_ROW
