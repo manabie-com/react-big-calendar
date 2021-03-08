@@ -12,7 +12,7 @@
   "dist/react-big-calendar.esm.js": {
     "bundled": 185637,
     "minified": 88160,
-    "gzipped": 21712,
+    "gzipped": 21714,
     "treeshaked": {
       "rollup": {
         "code": 63048,
