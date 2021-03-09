@@ -58,6 +58,13 @@ const CalendarFooter = ({ label }) => {
     </div>
   )
 }
+const ShowMoreButton = ({ key, onClick, label }) => {
+  return (
+    <button key={key} onClick={onClick}>
+      {label}
+    </button>
+  )
+}
 
 let Rendering = ({ localizer }) => {
   const [localEvents, setEvents] = useState([])
@@ -82,6 +89,7 @@ let Rendering = ({ localizer }) => {
         month: {
           dateHeader: CalendarHeader,
           dateFooter: CalendarFooter,
+          showMoreButton: ShowMoreButton,
         },
         // agenda: {
         //   event: EventAgenda,

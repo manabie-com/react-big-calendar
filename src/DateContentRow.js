@@ -218,6 +218,7 @@ class DateContentRow extends React.Component {
                 <EventEndingRow
                   segments={extra}
                   onShowMore={this.handleShowMore}
+                  components={components}
                   {...eventRowProps}
                 />
               )}

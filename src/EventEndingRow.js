@@ -3,6 +3,7 @@ import React from 'react'
 import EventRowMixin from './EventRowMixin'
 import { eventLevels } from './utils/eventLevels'
 import range from 'lodash/range'
+import ShowMoreButton from './ShowMoreButton'
 
 let isSegmentInSlot = (seg, slot) => seg.left <= slot && seg.right >= slot
 let eventsInSlot = (segments, slot) =>
@@ -74,18 +75,15 @@ class EventEndingRow extends React.Component {
   }
 
   renderShowMore(segments, slot) {
-    let { localizer } = this.props
+    let { localizer, components } = this.props
     let count = eventsInSlot(segments, slot)
 
+    const key = 'sm_' + slot
+    const onClick = e => this.showMore(slot, e)
+    const label = localizer.messages.showMore(count)
+    const ShowMore = components.showMoreButton || ShowMoreButton
     return count ? (
-      <a
-        key={'sm_' + slot}
-        href="#"
-        className={'rbc-show-more'}
-        onClick={e => this.showMore(slot, e)}
-      >
-        {localizer.messages.showMore(count)}
-      </a>
+      <ShowMore key={key} onClick={onClick} label={label} />
     ) : (
       false
     )
