@@ -13,6 +13,7 @@ ShowMoreButton.propTypes = {
   key: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
+  extraEventsCount: PropTypes.number,
 }
 
 export default ShowMoreButton

@@ -208,6 +208,7 @@ export interface ShowMoreButtonProps {
   key: string
   onClick: () => void
   label: string
+  extraEventsCount: number
 }
 
 export interface HeaderProps {

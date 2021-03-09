@@ -83,7 +83,12 @@ class EventEndingRow extends React.Component {
     const label = localizer.messages.showMore(count)
     const ShowMore = components.showMoreButton || ShowMoreButton
     return count ? (
-      <ShowMore key={key} onClick={onClick} label={label} />
+      <ShowMore
+        key={key}
+        onClick={onClick}
+        label={label}
+        extraEventsCount={count}
+      />
     ) : (
       false
     )
