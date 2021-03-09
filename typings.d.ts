@@ -252,7 +252,7 @@ export interface Components<
     dateHeader?: React.ComponentType<DateHeaderProps>
     dateFooter?: React.ComponentType<DateFooterProps>
     event?: React.ComponentType<EventProps<TEvent>>
-    showMoreButton?: React.ComponentType
+    showMoreButton?: React.ComponentType<ShowMoreButtonProps>
   }
   /**
    * component used as a header for each column in the TimeGridHeader
