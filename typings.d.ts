@@ -249,7 +249,7 @@ export interface Components<
     event?: React.ComponentType<EventProps<TEvent>>
   }
   month?: {
-    header?: React.ComponentType
+    header?: React.ComponentType<HeaderProps>
     dateHeader?: React.ComponentType<DateHeaderProps>
     dateFooter?: React.ComponentType<DateFooterProps>
     event?: React.ComponentType<EventProps<TEvent>>
