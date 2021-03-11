@@ -209,7 +209,6 @@ export interface ShowMoreButtonProps<TEvent> {
   onClick: () => void
   label: string
   extraEventsCount: number
-  events: TEvent[]
 }
 
 export interface HeaderProps {

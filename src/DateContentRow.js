@@ -128,7 +128,6 @@ class DateContentRow extends React.Component {
   render() {
     const {
       date,
-      events,
       rtl,
       range,
       className,
@@ -167,7 +166,6 @@ class DateContentRow extends React.Component {
     let WeekWrapper = components.weekWrapper
 
     const eventRowProps = {
-      events,
       selected,
       accessors,
       getters,
