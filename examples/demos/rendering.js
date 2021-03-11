@@ -58,8 +58,12 @@ const CalendarFooter = ({ label }) => {
     </div>
   )
 }
-const ShowMoreButton = ({ onClick, label }) => {
-  return <button onClick={onClick}>{label}</button>
+const ShowMoreButton = ({ key, onClick, label, events }) => {
+  return (
+    <button key={key} onClick={onClick}>
+      {label}
+    </button>
+  )
 }
 
 let Rendering = ({ localizer }) => {

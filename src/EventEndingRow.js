@@ -75,7 +75,7 @@ class EventEndingRow extends React.Component {
   }
 
   renderShowMore(segments, slot) {
-    let { localizer, components } = this.props
+    let { localizer, components, events } = this.props
     let count = eventsInSlot(segments, slot)
 
     const key = 'sm_' + slot
@@ -88,6 +88,7 @@ class EventEndingRow extends React.Component {
         onClick={onClick}
         label={label}
         extraEventsCount={count}
+        events={events}
       />
     ) : (
       false
