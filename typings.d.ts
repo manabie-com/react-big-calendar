@@ -204,11 +204,12 @@ export interface DateFooterProps {
   isOffRange: boolean
 }
 
-export interface ShowMoreButtonProps {
+export interface ShowMoreButtonProps<TEvent> {
   key: string
   onClick: () => void
   label: string
   extraEventsCount: number
+  events: TEvent
 }
 
 export interface HeaderProps {

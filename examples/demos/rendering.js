@@ -58,7 +58,7 @@ const CalendarFooter = ({ label }) => {
     </div>
   )
 }
-const ShowMoreButton = ({ key, onClick, label }) => {
+const ShowMoreButton = ({ key, onClick, label, events }) => {
   return (
     <button key={key} onClick={onClick}>
       {label}
