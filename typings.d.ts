@@ -204,9 +204,9 @@ export interface DateFooterProps {
   isOffRange: boolean
 }
 
-export interface ShowMoreButtonProps {
-  key: string
+export interface ShowMoreButtonProps<TEvent> {
   onClick: () => void
+  events: TEvent[]
   label: string
   extraEventsCount: number
 }
@@ -253,7 +253,7 @@ export interface Components<
     dateHeader?: React.ComponentType<DateHeaderProps>
     dateFooter?: React.ComponentType<DateFooterProps>
     event?: React.ComponentType<EventProps<TEvent>>
-    showMoreButton?: React.ComponentType<ShowMoreButtonProps>
+    showMoreButton?: React.ComponentType<ShowMoreButtonProps<TEvent>>
   }
   /**
    * component used as a header for each column in the TimeGridHeader

@@ -38,6 +38,12 @@ class DateContentRow extends React.Component {
     onShowMore(events, range[slot - 1], cell, slot, target)
   }
 
+  getEvents = slot => {
+    const metrics = this.slotMetrics(this.props)
+    const events = metrics.getEventsForSlot(slot)
+    return events
+  }
+
   createHeadingRef = r => {
     this.headingRow = r
   }
@@ -218,6 +224,7 @@ class DateContentRow extends React.Component {
                 <EventEndingRow
                   segments={extra}
                   onShowMore={this.handleShowMore}
+                  getEvents={this.getEvents}
                   components={components}
                   {...eventRowProps}
                 />

@@ -75,17 +75,19 @@ class EventEndingRow extends React.Component {
   }
 
   renderShowMore(segments, slot) {
-    let { localizer, components } = this.props
+    let { localizer, components, getEvents } = this.props
     let count = eventsInSlot(segments, slot)
 
     const key = 'sm_' + slot
     const onClick = e => this.showMore(slot, e)
+    const events = getEvents(slot)
     const label = localizer.messages.showMore(count)
     const ShowMore = components.showMoreButton || ShowMoreButton
     return count ? (
       <ShowMore
         key={key}
         onClick={onClick}
+        events={events}
         label={label}
         extraEventsCount={count}
       />
