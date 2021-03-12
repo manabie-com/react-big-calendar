@@ -4,6 +4,7 @@ import EventRowMixin from './EventRowMixin'
 import { eventLevels } from './utils/eventLevels'
 import range from 'lodash/range'
 import ShowMoreButton from './ShowMoreButton'
+import EventCell from './EventCell'
 
 let isSegmentInSlot = (seg, slot) => seg.left <= slot && seg.right >= slot
 let eventsInSlot = (segments, slot) =>
@@ -75,9 +76,17 @@ class EventEndingRow extends React.Component {
   }
 
   renderShowMore(segments, slot) {
-    let { localizer, components, getEvents } = this.props
+    let {
+      localizer,
+      components,
+      getEvents,
+      getters,
+      accessors,
+      onSelect,
+      onDoubleClick,
+      onKeyPress,
+    } = this.props
     let count = eventsInSlot(segments, slot)
-
     const key = 'sm_' + slot
     const onClick = e => this.showMore(slot, e)
     const events = getEvents(slot)
@@ -90,7 +99,22 @@ class EventEndingRow extends React.Component {
         events={events}
         label={label}
         extraEventsCount={count}
-      />
+      >
+        {events.map((event, index) => (
+          <EventCell
+            key={index}
+            type="popup"
+            event={event}
+            getters={getters}
+            onSelect={onSelect}
+            accessors={accessors}
+            components={components}
+            onDoubleClick={onDoubleClick}
+            onKeyPress={onKeyPress}
+            draggable={true}
+          />
+        ))}
+      </ShowMore>
     ) : (
       false
     )

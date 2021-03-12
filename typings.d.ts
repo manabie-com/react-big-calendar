@@ -102,6 +102,7 @@ export interface Event {
   start?: Date
   end?: Date
   resource?: any
+  isInPopup?: boolean
 }
 export interface DateRange {
   start: Date
@@ -205,8 +206,9 @@ export interface DateFooterProps {
 }
 
 export interface ShowMoreButtonProps<TEvent> {
-  onClick: () => void
-  events: TEvent[]
+  onClick: () => void //Use this to implement the default behavior
+  events: TEvent[] // Use this to entirely customize the popup
+  children: ReactElement[] // Use this to customize the popup but retain events behaviors
   label: string
   extraEventsCount: number
 }

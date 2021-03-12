@@ -6,6 +6,7 @@ import * as dates from './utils/dates'
 class EventCell extends React.Component {
   render() {
     let {
+      type,
       style,
       className,
       event,
@@ -50,6 +51,7 @@ class EventCell extends React.Component {
             localizer={localizer}
             slotStart={slotStart}
             slotEnd={slotEnd}
+            isInPopup={type == 'popup'}
           />
         ) : (
           title
@@ -84,6 +86,7 @@ EventCell.propTypes = {
   event: PropTypes.object.isRequired,
   slotStart: PropTypes.instanceOf(Date),
   slotEnd: PropTypes.instanceOf(Date),
+  type: PropTypes.string,
 
   resizable: PropTypes.bool,
   selected: PropTypes.bool,
