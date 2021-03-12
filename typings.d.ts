@@ -102,7 +102,6 @@ export interface Event {
   start?: Date
   end?: Date
   resource?: any
-  isInPopup?: boolean
 }
 export interface DateRange {
   start: Date
@@ -282,6 +281,7 @@ export interface ToolbarProps<
 export interface EventProps<TEvent extends object = Event> {
   event: TEvent
   title: string
+  isInPopup?: boolean
 }
 
 export interface EventWrapperProps<TEvent extends object = Event> {
