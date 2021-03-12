@@ -58,14 +58,8 @@ const CalendarFooter = ({ label }) => {
     </div>
   )
 }
-const ShowMoreButton = ({ label, events, children }) => {
-  return (
-    <div>
-      POPUP
-      {children}
-    </div>
-  )
-  // return <button onClick={() => console.log('lmao', events)}>{label}</button>
+const ShowMoreButton = ({ label, events, children, date }) => {
+  return <button onClick={() => console.log('lmao', date)}>{label}</button>
 }
 
 let Rendering = ({ localizer }) => {

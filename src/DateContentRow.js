@@ -39,9 +39,11 @@ class DateContentRow extends React.Component {
   }
 
   getEvents = slot => {
+    const { range } = this.props
+
     const metrics = this.slotMetrics(this.props)
     const events = metrics.getEventsForSlot(slot)
-    return events
+    return { events, date: range[slot - 1] }
   }
 
   createHeadingRef = r => {

@@ -38,7 +38,6 @@ class EventCell extends React.Component {
       isAllDay || allDay || dates.diff(start, dates.ceil(end, 'day'), 'day') > 1
 
     let userProps = getters.eventProp(event, start, end, selected)
-
     const content = (
       <div className="rbc-event-content" title={tooltip || undefined}>
         {Event ? (

@@ -89,7 +89,7 @@ class EventEndingRow extends React.Component {
     let count = eventsInSlot(segments, slot)
     const key = 'sm_' + slot
     const onClick = e => this.showMore(slot, e)
-    const events = getEvents(slot)
+    const { events, date } = getEvents(slot)
     const label = localizer.messages.showMore(count)
     const ShowMore = components.showMoreButton || ShowMoreButton
     return count ? (
@@ -97,6 +97,7 @@ class EventEndingRow extends React.Component {
         key={key}
         onClick={onClick}
         events={events}
+        date={date}
         label={label}
         extraEventsCount={count}
       >

@@ -209,6 +209,7 @@ export interface ShowMoreButtonProps<TEvent> {
   onClick: () => void //Use this to implement the default behavior
   events: TEvent[] // Use this to entirely customize the popup
   children: ReactElement[] // Use this to customize the popup but retain events behaviors
+  date: Date // date of the day selected
   label: string
   extraEventsCount: number
 }
