@@ -23,6 +23,12 @@ import { inRange, sortEvents } from './utils/eventLevels'
 let eventsForWeek = (evts, start, end, accessors) =>
   evts.filter(e => inRange(e, start, end, accessors))
 
+class DateWithStatus extends Date {
+  constructor(date, dailyStatus) {
+    super(date)
+    this.dailyStatus = dailyStatus
+  }
+}
 class MonthView extends React.Component {
   constructor(...args) {
     super(...args)
@@ -74,10 +80,17 @@ class MonthView extends React.Component {
   }
 
   render() {
-    let { date, localizer, className } = this.props,
-      month = dates.visibleDays(date, localizer),
+    let { date, localizer, className, dailyStatuses } = this.props,
+      month = dates.visibleDays(date, localizer).map((monthDate, index) => {
+        return new DateWithStatus(monthDate, dailyStatuses[index])
+      }),
       weeks = chunk(month, 7)
 
+    if (dailyStatuses.length != month.length) {
+      console.warn(`react-big-calendar: dailyStatuses length is not matching the visible days on calendar. 
+        Make sure ${dailyStatuses} and ${month} matches so that the data is correctly displayed
+      `)
+    }
     this._weekCount = weeks.length
 
     return (
@@ -169,6 +182,7 @@ class MonthView extends React.Component {
         role="cell"
       >
         <DateHeaderComponent
+          dailyStatus={date.dailyStatus}
           label={label}
           date={date}
           drilldownView={drilldownView}
@@ -350,6 +364,7 @@ class MonthView extends React.Component {
 
 MonthView.propTypes = {
   events: PropTypes.array.isRequired,
+  dailyStatuses: PropTypes.array.isRequired,
   date: PropTypes.instanceOf(Date),
 
   min: PropTypes.instanceOf(Date),

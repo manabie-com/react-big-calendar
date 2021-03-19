@@ -192,7 +192,8 @@ export interface Formats {
   eventTimeRangeEndFormat?: DateRangeFormatFunction
 }
 
-export interface DateHeaderProps {
+export interface DateHeaderProps<TDailyStatus> {
+  dailyStatus: TDailyStatus
   label: string
   date: Date
   isOffRange: boolean

@@ -1,6 +1,7 @@
 import React, { Children, useEffect, useState } from 'react'
 import { Calendar, Views } from 'react-big-calendar'
 import events from '../events'
+import dailyStatuses from '../dailyStatuses'
 
 function Event({ event }) {
   return (
@@ -48,8 +49,14 @@ const ColoredEventWrapper = ({ children, event }) => {
     },
   })
 }
-const CalendarHeader = ({ label }) => {
-  return <div>{label}</div>
+const CalendarHeader = ({ label, dailyStatus }) => {
+  return (
+    <div>
+      <p>
+        {label} - {dailyStatus.openingStatus}
+      </p>
+    </div>
+  )
 }
 const CalendarFooter = ({ label }) => {
   return (
@@ -73,6 +80,7 @@ let Rendering = ({ localizer }) => {
   return (
     <Calendar
       events={localEvents}
+      dailyStatuses={dailyStatuses}
       localizer={localizer}
       defaultDate={new Date(2015, 3, 1)}
       defaultView={Views.MONTH}
