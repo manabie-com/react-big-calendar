@@ -228,6 +228,7 @@ export interface ResourceHeaderProps {
 
 export interface Components<
   TEvent extends object = Event,
+  TDailyStatus extends object = object,
   TResource extends object = object
 > {
   event?: React.ComponentType<EventProps<TEvent>>
@@ -253,7 +254,7 @@ export interface Components<
   }
   month?: {
     header?: React.ComponentType<HeaderProps>
-    dateHeader?: React.ComponentType<DateHeaderProps>
+    dateHeader?: React.ComponentType<DateHeaderProps<TDailyStatus>>
     dateFooter?: React.ComponentType<DateFooterProps>
     event?: React.ComponentType<EventProps<TEvent>>
     showMoreButton?: React.ComponentType<ShowMoreButtonProps<TEvent>>
@@ -354,14 +355,16 @@ export class DateLocalizer {
 
 export interface CalendarProps<
   TEvent extends object = Event,
+  TDailyStatus extends object = object,
   TResource extends object = object
-> extends React.Props<Calendar<TEvent, TResource>> {
+> extends React.Props<Calendar<TEvent, TDailyStatus, TResource>> {
   localizer: DateLocalizer
 
   date?: stringOrDate
   getNow?: () => Date
   view?: View
   events?: TEvent[]
+  dailyStatuses?: TDailyStatus[]
   handleDragStart?: (event: TEvent) => void
   onNavigate?: (newDate: Date, view: View, action: NavigateAction) => void
   onView?: (view: View) => void
@@ -458,8 +461,9 @@ export interface MoveOptions {
 
 export class Calendar<
   TEvent extends object = Event,
+  TDailyStatus extends object = object,
   TResource extends object = object
-> extends React.Component<CalendarProps<TEvent, TResource>> {}
+> extends React.Component<CalendarProps<TEvent, TDailyStatus, TResource>> {}
 
 export interface components {
   dateCellWrapper: React.ComponentType
