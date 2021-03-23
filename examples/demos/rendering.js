@@ -1,5 +1,5 @@
 import React, { Children, useEffect, useState } from 'react'
-import { Calendar, Views } from 'react-big-calendar'
+import { Calendar, Views, firstVisibleDay } from 'react-big-calendar'
 import events from '../events'
 import dailyStatuses from '../dailyStatuses'
 
@@ -71,7 +71,7 @@ const ShowMoreButton = ({ label, events, children, date }) => {
 
 let Rendering = ({ localizer }) => {
   const [localEvents, setEvents] = useState([])
-
+  console.log(firstVisibleDay(new Date(), localizer))
   useEffect(() => {
     const allDayEvents = events.filter(event => event.allDay)
     const notAllDayEvents = events.filter(event => !event.allDay)
