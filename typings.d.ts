@@ -563,5 +563,8 @@ export interface DayProps {
 }
 export class Day extends React.Component<DayProps> {}
 
+export function firstVisibleDay(date: Date, localizer: any): Date
+export function lastVisibleDay(date: Date, localizer: any): Date
+
 // Turn off automatic exports
 export {}
