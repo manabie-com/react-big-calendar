@@ -50,10 +50,11 @@ const ColoredEventWrapper = ({ children, event }) => {
   })
 }
 const CalendarHeader = ({ label, dailyStatus }) => {
+  const openingStatus = dailyStatus ? dailyStatus.openingStatus : 'hehe'
   return (
     <div>
       <p>
-        {label} - {dailyStatus.openingStatus}
+        {label} - {openingStatus}
       </p>
     </div>
   )

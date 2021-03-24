@@ -82,8 +82,8 @@ class MonthView extends React.Component {
   render() {
     let { date, localizer, className, dailyStatuses } = this.props,
       month = dates.visibleDays(date, localizer).map(monthDate => {
-        const dailyStatus = dailyStatuses.find(
-          status => status.start.getTime() == monthDate.getTime()
+        const dailyStatus = dailyStatuses.find(status =>
+          dates.isSameDay(status.start, monthDate)
         )
         return new DateWithStatus(monthDate, dailyStatus)
       }),

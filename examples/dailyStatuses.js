@@ -5,7 +5,7 @@ function getRandomInt(arrayLength) {
 const openingTimes = ['Regular', 'Non-Regular', 'Spare', 'Closed']
 const repeatCondition = ['Doesnt Repeat', 'Weekly Until', 'Daily Until']
 
-var times = 35
+var times = 3
 let dailyStatuses = []
 
 for (var i = 0; i < times; i++) {
