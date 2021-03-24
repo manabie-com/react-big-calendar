@@ -81,16 +81,14 @@ class MonthView extends React.Component {
 
   render() {
     let { date, localizer, className, dailyStatuses } = this.props,
-      month = dates.visibleDays(date, localizer).map((monthDate, index) => {
-        return new DateWithStatus(monthDate, dailyStatuses[index])
+      month = dates.visibleDays(date, localizer).map(monthDate => {
+        const dailyStatus = dailyStatuses.find(
+          status => status.start == monthDate
+        )
+        return new DateWithStatus(monthDate, dailyStatus)
       }),
       weeks = chunk(month, 7)
 
-    if (dailyStatuses.length != month.length) {
-      console.warn(`react-big-calendar: dailyStatuses length is not matching the visible days on calendar. 
-        Make sure ${dailyStatuses} and ${month} matches so that the data is correctly displayed
-      `)
-    }
     this._weekCount = weeks.length
 
     return (
