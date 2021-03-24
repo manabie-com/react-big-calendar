@@ -83,7 +83,7 @@ class MonthView extends React.Component {
     let { date, localizer, className, dailyStatuses } = this.props,
       month = dates.visibleDays(date, localizer).map(monthDate => {
         const dailyStatus = dailyStatuses.find(
-          status => status.start == monthDate
+          status => status.start.getTime() == monthDate.getTime()
         )
         return new DateWithStatus(monthDate, dailyStatus)
       }),
