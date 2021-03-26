@@ -192,7 +192,10 @@ export interface Formats {
   eventTimeRangeEndFormat?: DateRangeFormatFunction
 }
 
-export interface DateHeaderProps<TDailyStatus, TUtilities> {
+export interface DateHeaderProps<
+  TDailyStatus,
+  TUtilities extends object = object
+> {
   dailyStatus: TDailyStatus
   label: string
   date: Date
@@ -201,7 +204,7 @@ export interface DateHeaderProps<TDailyStatus, TUtilities> {
   utilities: TUtilities
 }
 
-export interface DateFooterProps<TUtilities> {
+export interface DateFooterProps<TUtilities extends object = object> {
   label: string
   date: Date
   isOffRange: boolean
@@ -235,7 +238,7 @@ export interface Components<
   TUtilities extends object = object,
   TResource extends object = object
 > {
-  event?: React.ComponentType<EventProps<TEvent>>
+  event?: React.ComponentType<EventProps<TEvent, TUtilities>>
   eventWrapper?: React.ComponentType<EventWrapperProps<TEvent>>
   eventContainerWrapper?: React.ComponentType
   dateCellWrapper?: React.ComponentType
