@@ -161,6 +161,7 @@ class DateContentRow extends React.Component {
       isAllDay,
       resizable,
       showAllEvents,
+      utilities,
     } = this.props
 
     if (renderForMeasure) return this.renderDummy()
@@ -185,6 +186,7 @@ class DateContentRow extends React.Component {
       resourceId,
       slotMetrics: metrics,
       resizable,
+      utilities,
     }
 
     return (
@@ -248,6 +250,7 @@ DateContentRow.propTypes = {
   date: PropTypes.instanceOf(Date),
   events: PropTypes.array.isRequired,
   range: PropTypes.array.isRequired,
+  utilities: PropTypes.object,
 
   rtl: PropTypes.bool,
   resizable: PropTypes.bool,

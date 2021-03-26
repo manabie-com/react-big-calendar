@@ -85,6 +85,7 @@ class EventEndingRow extends React.Component {
       onSelect,
       onDoubleClick,
       onKeyPress,
+      utilities,
     } = this.props
     let count = eventsInSlot(segments, slot)
     const key = 'sm_' + slot
@@ -110,6 +111,7 @@ class EventEndingRow extends React.Component {
             onSelect={onSelect}
             accessors={accessors}
             components={components}
+            utilities={utilities}
             onDoubleClick={onDoubleClick}
             onKeyPress={onKeyPress}
             draggable={true}

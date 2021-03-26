@@ -119,6 +119,7 @@ class MonthView extends React.Component {
       accessors,
       getters,
       showAllEvents,
+      utilities,
     } = this.props
 
     const { needLimitMeasure, rowLimit } = this.state
@@ -144,6 +145,7 @@ class MonthView extends React.Component {
         accessors={accessors}
         getters={getters}
         localizer={localizer}
+        utilities={utilities}
         renderHeader={this.readerDateHeading}
         renderFooter={this.renderDateFooter}
         renderForMeasure={needLimitMeasure}
@@ -161,7 +163,12 @@ class MonthView extends React.Component {
   }
 
   readerDateHeading = ({ date, className, ...props }) => {
-    let { date: currentDate, getDrilldownView, localizer } = this.props
+    let {
+      date: currentDate,
+      getDrilldownView,
+      localizer,
+      utilities,
+    } = this.props
 
     let isOffRange = dates.month(date) !== dates.month(currentDate)
     let isCurrent = dates.eq(date, currentDate, 'day')
@@ -185,6 +192,8 @@ class MonthView extends React.Component {
           date={date}
           drilldownView={drilldownView}
           isOffRange={isOffRange}
+          isCurrent={isCurrent}
+          utilities={utilities}
           onDrillDown={e => this.handleHeadingClick(date, drilldownView, e)}
         />
       </div>
@@ -192,7 +201,7 @@ class MonthView extends React.Component {
   }
 
   renderDateFooter = ({ date, className, ...props }) => {
-    let { date: currentDate, localizer } = this.props
+    let { date: currentDate, localizer, utilities } = this.props
 
     let isOffRange = dates.month(date) !== dates.month(currentDate)
     let isCurrent = dates.eq(date, currentDate, 'day')
@@ -213,6 +222,8 @@ class MonthView extends React.Component {
           label={label}
           date={date}
           isOffRange={isOffRange}
+          isCurrent={isCurrent}
+          utilities={utilities}
         />
       </div>
     )
@@ -361,6 +372,7 @@ class MonthView extends React.Component {
 }
 
 MonthView.propTypes = {
+  utilities: PropTypes.object,
   events: PropTypes.array.isRequired,
   dailyStatuses: PropTypes.array.isRequired,
   date: PropTypes.instanceOf(Date),

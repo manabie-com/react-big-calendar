@@ -39,6 +39,7 @@ export default {
       slotMetrics,
       components,
       resizable,
+      utilities,
     } = props
 
     let continuesPrior = slotMetrics.continuesPrior(event)
@@ -47,6 +48,7 @@ export default {
     return (
       <EventCell
         event={event}
+        utilities={utilities}
         getters={getters}
         localizer={localizer}
         accessors={accessors}

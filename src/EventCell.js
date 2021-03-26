@@ -24,6 +24,7 @@ class EventCell extends React.Component {
       components: { event: Event, eventWrapper: EventWrapper },
       slotStart,
       slotEnd,
+      utilities,
       ...props
     } = this.props
     delete props.resizable
@@ -43,6 +44,7 @@ class EventCell extends React.Component {
         {Event ? (
           <Event
             event={event}
+            utilities={utilities}
             continuesPrior={continuesPrior}
             continuesAfter={continuesAfter}
             title={title}
@@ -83,6 +85,7 @@ class EventCell extends React.Component {
 
 EventCell.propTypes = {
   event: PropTypes.object.isRequired,
+  utilities: PropTypes.object,
   slotStart: PropTypes.instanceOf(Date),
   slotEnd: PropTypes.instanceOf(Date),
   type: PropTypes.string,

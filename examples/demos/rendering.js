@@ -3,7 +3,13 @@ import { Calendar, Views, firstVisibleDay } from 'react-big-calendar'
 import events from '../events'
 import dailyStatuses from '../dailyStatuses'
 
-function Event({ event }) {
+const utilities = {
+  onSaved: text => {
+    console.log(text)
+  },
+}
+function Event({ event, utilities }) {
+  utilities && utilities.onSaved(`Utilities for Event ${event.title}`)
   return (
     <span style={{ color: 'black' }}>
       <strong>{event.title}</strong>
@@ -49,7 +55,8 @@ const ColoredEventWrapper = ({ children, event }) => {
     },
   })
 }
-const CalendarHeader = ({ label, dailyStatus }) => {
+const CalendarHeader = ({ label, dailyStatus, utilities }) => {
+  utilities && utilities.onSaved('Utilities for Header')
   const openingStatus = dailyStatus ? dailyStatus.openingStatus : 'hehe'
   return (
     <div>
@@ -59,7 +66,8 @@ const CalendarHeader = ({ label, dailyStatus }) => {
     </div>
   )
 }
-const CalendarFooter = ({ label }) => {
+const CalendarFooter = ({ label, utilities }) => {
+  utilities && utilities.onSaved('Utilities for Footer')
   return (
     <div style={{ textAlign: 'center' }}>
       <button>Add Event</button>
@@ -85,6 +93,7 @@ let Rendering = ({ localizer }) => {
       localizer={localizer}
       defaultDate={new Date(2015, 3, 1)}
       defaultView={Views.MONTH}
+      utilities={utilities}
       // dayPropGetter={customDayPropGetter}
       // slotPropGetter={customSlotPropGetter}
       popup

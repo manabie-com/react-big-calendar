@@ -192,19 +192,22 @@ export interface Formats {
   eventTimeRangeEndFormat?: DateRangeFormatFunction
 }
 
-export interface DateHeaderProps<TDailyStatus> {
+export interface DateHeaderProps<TDailyStatus, TUtilities> {
   dailyStatus: TDailyStatus
   label: string
   date: Date
   isOffRange: boolean
+  isCurrent: boolean
+  utilities: TUtilities
 }
 
-export interface DateFooterProps {
+export interface DateFooterProps<TUtilities> {
   label: string
   date: Date
   isOffRange: boolean
+  isCurrent: boolean
+  utilities: TUtilities
 }
-
 export interface ShowMoreButtonProps<TEvent> {
   onClick: () => void //Use this to implement the default behavior
   events: TEvent[] // Use this to entirely customize the popup
@@ -229,6 +232,7 @@ export interface ResourceHeaderProps {
 export interface Components<
   TEvent extends object = Event,
   TDailyStatus extends object = object,
+  TUtilities extends object = object,
   TResource extends object = object
 > {
   event?: React.ComponentType<EventProps<TEvent>>
@@ -254,9 +258,9 @@ export interface Components<
   }
   month?: {
     header?: React.ComponentType<HeaderProps>
-    dateHeader?: React.ComponentType<DateHeaderProps<TDailyStatus>>
-    dateFooter?: React.ComponentType<DateFooterProps>
-    event?: React.ComponentType<EventProps<TEvent>>
+    dateHeader?: React.ComponentType<DateHeaderProps<TDailyStatus, TUtilities>>
+    dateFooter?: React.ComponentType<DateFooterProps<TUtilities>>
+    event?: React.ComponentType<EventProps<TEvent, TUtilities>>
     showMoreButton?: React.ComponentType<ShowMoreButtonProps<TEvent>>
   }
   /**
@@ -280,10 +284,14 @@ export interface ToolbarProps<
   children?: React.ReactNode
 }
 
-export interface EventProps<TEvent extends object = Event> {
+export interface EventProps<
+  TEvent extends object = Event,
+  TUtilities extends object = object
+> {
   event: TEvent
   title: string
   isInPopup?: boolean
+  utilities: TUtilities
 }
 
 export interface EventWrapperProps<TEvent extends object = Event> {
@@ -356,6 +364,7 @@ export class DateLocalizer {
 export interface CalendarProps<
   TEvent extends object = Event,
   TDailyStatus extends object = object,
+  TUtilities extends object = object,
   TResource extends object = object
 > extends React.Props<Calendar<TEvent, TDailyStatus, TResource>> {
   localizer: DateLocalizer
@@ -365,6 +374,7 @@ export interface CalendarProps<
   view?: View
   events?: TEvent[]
   dailyStatuses?: TDailyStatus[]
+  utilities: TUtilities
   handleDragStart?: (event: TEvent) => void
   onNavigate?: (newDate: Date, view: View, action: NavigateAction) => void
   onView?: (view: View) => void
@@ -422,7 +432,7 @@ export interface CalendarProps<
   scrollToTime?: Date
   culture?: string
   formats?: Formats
-  components?: Components<TEvent, TResource>
+  components?: Components<TEvent, TDailyStatus, TUtilities, TResource>
   messages?: Messages
   dayLayoutAlgorithm?: DayLayoutAlgorithm | DayLayoutFunction<TEvent>
   titleAccessor?: keyof TEvent | ((event: TEvent) => string)
