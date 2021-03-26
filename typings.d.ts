@@ -374,7 +374,7 @@ export interface CalendarProps<
   view?: View
   events?: TEvent[]
   dailyStatuses?: TDailyStatus[]
-  utilities: TUtilities
+  utilities?: TUtilities
   handleDragStart?: (event: TEvent) => void
   onNavigate?: (newDate: Date, view: View, action: NavigateAction) => void
   onView?: (view: View) => void
