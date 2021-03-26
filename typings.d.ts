@@ -472,8 +472,11 @@ export interface MoveOptions {
 export class Calendar<
   TEvent extends object = Event,
   TDailyStatus extends object = object,
+  TUtilities extends object = object,
   TResource extends object = object
-> extends React.Component<CalendarProps<TEvent, TDailyStatus, TResource>> {}
+> extends React.Component<
+  CalendarProps<TEvent, TDailyStatus, TUtilities, TResource>
+> {}
 
 export interface components {
   dateCellWrapper: React.ComponentType
