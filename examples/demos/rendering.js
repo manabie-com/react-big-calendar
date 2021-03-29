@@ -78,6 +78,10 @@ const ShowMoreButton = ({ label, events, children, date }) => {
   return <button onClick={() => console.log('lmao', date)}>{label}</button>
 }
 
+const ToolBar = ({ utilities }) => {
+  utilities && utilities.onSaved('Utilities for Toolbar')
+  return <h1>Toolbar</h1>
+}
 let Rendering = ({ localizer }) => {
   const [localEvents, setEvents] = useState([])
   console.log(firstVisibleDay(new Date(), localizer))
@@ -101,6 +105,7 @@ let Rendering = ({ localizer }) => {
         event: Event,
         eventWrapper: ColoredEventWrapper,
         month: {
+          toolbar: ToolBar,
           dateHeader: CalendarHeader,
           dateFooter: CalendarFooter,
           showMoreButton: ShowMoreButton,

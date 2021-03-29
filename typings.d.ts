@@ -245,7 +245,7 @@ export interface Components<
   timeSlotWrapper?: React.ComponentType
   timeGutterHeader?: React.ComponentType
   timeGutterWrapper?: React.ComponentType
-  toolbar?: React.ComponentType<ToolbarProps<TEvent, TResource>>
+  toolbar?: React.ComponentType<ToolbarProps<TEvent, TUtilities, TResource>>
   agenda?: {
     date?: React.ComponentType
     time?: React.ComponentType
@@ -275,6 +275,7 @@ export interface Components<
 
 export interface ToolbarProps<
   TEvent extends object = Event,
+  TUtilities extends object = object,
   TResource extends object = object
 > {
   date: Date
@@ -285,6 +286,7 @@ export interface ToolbarProps<
   onNavigate: (navigate: NavigateAction, date?: Date) => void
   onView: (view: View) => void
   children?: React.ReactNode
+  utilities: TUtilities
 }
 
 export interface EventProps<

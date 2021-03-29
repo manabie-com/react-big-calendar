@@ -777,6 +777,11 @@ class Calendar extends React.Component {
      * or custom `Function(events, minimumStartDifference, slotMetrics, accessors)`
      */
     dayLayoutAlgorithm: DayLayoutAlgorithmPropType,
+
+    /**
+     * Utilities for month view components
+     */
+    utilities: PropTypes.object,
   }
 
   static defaultProps = {
@@ -924,6 +929,7 @@ class Calendar extends React.Component {
       length,
       showMultiDayTimes,
       onShowMore,
+      utilities,
       components: _0,
       formats: _1,
       messages: _2,
@@ -955,6 +961,7 @@ class Calendar extends React.Component {
           <CalToolbar
             date={current}
             view={view}
+            utilities={utilities}
             views={viewNames}
             label={label}
             onView={this.handleViewChange}
@@ -964,6 +971,7 @@ class Calendar extends React.Component {
         )}
         <View
           {...props}
+          utilities={utilities}
           events={events}
           backgroundEvents={backgroundEvents}
           date={current}
