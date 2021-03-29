@@ -78,6 +78,7 @@ export type ViewProps<
 }
 export type ViewsProps<
   TEvent extends object = Event,
+  TUtilities extends object = object,
   TResource extends object = object
 > =
   | View[]
@@ -280,7 +281,7 @@ export interface ToolbarProps<
 > {
   date: Date
   view: View
-  views: ViewsProps<TEvent, TResource>
+  views: ViewsProps<TEvent, TUtilities, TResource>
   label: string
   localizer: { messages: Messages }
   onNavigate: (navigate: NavigateAction, date?: Date) => void
