@@ -12,8 +12,8 @@
   },
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "dist/react-big-calendar.esm.js",
-  "style": "lib/css/react-big-calendar.css",
+  "module": "dist/react-big-calendar-custom.esm.js",
+  "style": "lib/css/react-big-calendar-custom.css",
   "files": [
     "lib/",
     "dist/",
