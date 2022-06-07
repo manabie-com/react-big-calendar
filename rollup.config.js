@@ -28,7 +28,7 @@ export default [
   {
     input,
     output: {
-      file: './dist/react-big-calendar.js',
+      file: './dist/mana-calendar.js',
       format: 'umd',
       name,
       globals,
@@ -55,7 +55,7 @@ export default [
   {
     input,
     output: {
-      file: './dist/react-big-calendar.min.js',
+      file: './dist/mana-calendar.min.js',
       format: 'umd',
       name,
       globals,
