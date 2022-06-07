@@ -46,5 +46,29 @@
         "code": 70014
       }
     }
+  },
+  "mana-calendar.js": {
+    "bundled": 1583148,
+    "minified": 445047,
+    "gzipped": 137437
+  },
+  "mana-calendar.min.js": {
+    "bundled": 283221,
+    "minified": 281772,
+    "gzipped": 88846
+  },
+  "mana-calendar.esm.js": {
+    "bundled": 199632,
+    "minified": 93228,
+    "gzipped": 24195,
+    "treeshaked": {
+      "rollup": {
+        "code": 66266,
+        "import_statements": 1804
+      },
+      "webpack": {
+        "code": 70046
+      }
+    }
   }
 }

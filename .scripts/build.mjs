@@ -18,6 +18,8 @@ console.log(chalk.blue(`Compiling 'lib' js files`))
 // build files used for overrides
 await $`NODE_ENV=production RBC_CJS_BUILD=true babel src --out-dir lib`
 console.log(chalk.blue(`Copying SASS files to 'lib'`))
+// copy types files
+await fs.copy('./src/typings.d.ts', './lib/typings.d.ts')
 // and since we don't currently use CSS modules...
 await fs.copy('./src/sass', './lib/sass')
 console.log(chalk.blue(`...and the 'Add-on' SASS`))

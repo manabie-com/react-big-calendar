@@ -1,7 +1,6 @@
 {
   "name": "mana-calendar",
-  "types": "typings.d.ts",
-  "version": "0.40.3",
+  "version": "0.40.4",
   "description": "Calendar! with events",
   "author": {
     "name": "Jason Quense",
@@ -13,6 +12,7 @@
   },
   "license": "MIT",
   "main": "lib/index.js",
+  "types": "lib/typings.d.ts",
   "module": "dist/mana-calendar.esm.js",
   "style": "lib/css/mana-calendar.css",
   "files": [
