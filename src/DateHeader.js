@@ -13,7 +13,7 @@ const DateHeader = ({ label, drilldownView, onDrillDown }) => {
       onClick={onDrillDown}
       role="cell"
     >
-      {label}
+      {label.replace(/^0/g, '')}
     </button>
   )
 }

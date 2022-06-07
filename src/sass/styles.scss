@@ -51,10 +51,23 @@
   padding: 0 3px;
   text-align: center;
   vertical-align: middle;
-  font-weight: bold;
-  font-size: 90%;
   min-height: 0;
   border-bottom: 1px solid $cell-border;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #757575;
+  font-size: 12px;
+  line-height: 19.92px;
+  height: 36px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    vertical-align: middle;
+  }
 
   & + & {
     border-left: 1px solid $cell-border;
@@ -75,6 +88,21 @@
   }
 }
 
+.rbc-date-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.rbc-current {
+  .rbc-button-link {
+    background-color: #64B6F7;
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    color: #FFFFFF;
+  }
+}
+
 .rbc-button-link {
   color: inherit;
   background: none;
@@ -83,7 +111,9 @@
   border: none;
   cursor: pointer;
   user-select: text;
-  width: 100%;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .rbc-row-content {
