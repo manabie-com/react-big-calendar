@@ -1,6 +1,7 @@
 {
   "name": "mana-calendar",
-  "version": "0.40.1",
+  "types": "typings.d.ts",
+  "version": "0.40.3",
   "description": "Calendar! with events",
   "author": {
     "name": "Jason Quense",
