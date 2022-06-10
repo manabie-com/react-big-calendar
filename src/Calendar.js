@@ -829,7 +829,7 @@ class Calendar extends React.Component {
       time: PropTypes.node,
       event: PropTypes.node,
       noEventsInRange: PropTypes.node,
-      showMore: PropTypes.func,
+      showMore: PropTypes.elementType,
     }),
 
     /**

@@ -83,11 +83,11 @@ export type ViewsProps<
 > =
   | View[]
   | {
-      work_week?: boolean | React.ComponentType<any> & ViewStatic
-      day?: boolean | React.ComponentType<any> & ViewStatic
-      agenda?: boolean | React.ComponentType<any> & ViewStatic
-      month?: boolean | React.ComponentType<any> & ViewStatic
-      week?: boolean | React.ComponentType<any> & ViewStatic
+      work_week?: boolean | (React.ComponentType<any> & ViewStatic)
+      day?: boolean | (React.ComponentType<any> & ViewStatic)
+      agenda?: boolean | (React.ComponentType<any> & ViewStatic)
+      month?: boolean | (React.ComponentType<any> & ViewStatic)
+      week?: boolean | (React.ComponentType<any> & ViewStatic)
     }
 export type DayLayoutFunction<TEvent extends object = Event> = (_: {
   events: TEvent[]
@@ -212,13 +212,8 @@ export interface DateFooterProps<TUtilities extends object = object> {
   isCurrent: boolean
   utilities: TUtilities
 }
-export interface ShowMoreButtonProps<TEvent> {
-  onClick: () => void //Use this to implement the default behavior
-  events: TEvent[] // Use this to entirely customize the popup
-  children: ReactElement[] // Use this to customize the popup but retain events behaviors
-  date: Date // date of the day selected
-  label: string
-  extraEventsCount: number
+export interface ShowMoreProps<TEvent> {
+  total: number
 }
 
 export interface HeaderProps {
@@ -265,7 +260,7 @@ export interface Components<
     dateHeader?: React.ComponentType<DateHeaderProps<TDailyStatus, TUtilities>>
     dateFooter?: React.ComponentType<DateFooterProps<TUtilities>>
     event?: React.ComponentType<EventProps<TEvent, TUtilities>>
-    showMoreButton?: React.ComponentType<ShowMoreButtonProps<TEvent>>
+    showMoreButton?: React.ComponentType<ShowMoreProps<TEvent>>
   }
   /**
    * component used as a header for each column in the TimeGridHeader
@@ -328,7 +323,7 @@ export interface EventWrapperProps<TEvent extends object = Event> {
   children: ReactElement
 }
 
-export interface Messages {
+export interface Messages<TEvent extends object = Event> {
   date?: string
   time?: string
   event?: string
@@ -343,7 +338,7 @@ export interface Messages {
   tomorrow?: string
   today?: string
   agenda?: string
-  showMore?: (count: number) => string
+  showMore?: React.ComponentType<ShowMoreProps<TEvent>>
   noEventsInRange?: string
 }
 

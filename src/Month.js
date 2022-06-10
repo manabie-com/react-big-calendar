@@ -175,6 +175,7 @@ class MonthView extends React.Component {
         <DateHeaderComponent
           label={label}
           date={date}
+          isCurrent={isCurrent}
           drilldownView={drilldownView}
           isOffRange={isOffRange}
           onDrillDown={(e) => this.handleHeadingClick(date, drilldownView, e)}
