@@ -24,6 +24,7 @@
   font-weight: bold;
   font-size: 85%;
   height: auto;
+  width: 100%;
   line-height: normal;
   color: $event-bg;
   &:hover,
@@ -32,9 +33,14 @@
   }
 }
 
+#calendar-wrapper {
+  height: 100%;
+  overflow: auto;
+  border: 1px solid $calendar-border;
+}
+
 .rbc-month-view {
   position: relative;
-  border: 1px solid $calendar-border;
   display: flex;
   flex-direction: column;
   flex: 1 0 0;

@@ -23,6 +23,7 @@
   z-index: @event-zindex;
   font-weight: bold;
   font-size: 85%;
+  width: 100%;
   height: auto;
   line-height: normal;
   color: @event-bg;
@@ -32,9 +33,14 @@
   }
 }
 
+#calendar-wrapper {
+  height: 100%;
+  overflow: auto;
+  border: 1px solid #ddd;
+}
+
 .rbc-month-view {
   position: relative;
-  border: 1px solid @calendar-border;
   display: flex;
   flex-direction: column;
   flex: 1 0 0;

@@ -21,6 +21,8 @@ import { inRange, sortEvents } from './utils/eventLevels'
 let eventsForWeek = (evts, start, end, accessors, localizer) =>
   evts.filter((e) => inRange(e, start, end, accessors, localizer))
 
+let fixWidth = 0
+
 class MonthView extends React.Component {
   constructor(...args) {
     super(...args)
@@ -32,6 +34,10 @@ class MonthView extends React.Component {
       rowLimit: 5,
       needLimitMeasure: true,
     }
+
+    // my custom
+    this.widthRef = React.createRef()
+    // my custom
   }
 
   UNSAFE_componentWillReceiveProps({ date }) {
@@ -58,6 +64,8 @@ class MonthView extends React.Component {
       }),
       false
     )
+
+    if (!fixWidth) fixWidth = this.widthRef.current.offsetWidth
   }
 
   componentDidUpdate() {
@@ -80,16 +88,19 @@ class MonthView extends React.Component {
     this._weekCount = weeks.length
 
     return (
-      <div
-        className={clsx('rbc-month-view', className)}
-        role="table"
-        aria-label="Month View"
-      >
-        <div className="rbc-row rbc-month-header" role="row">
-          {this.renderHeaders(weeks[0])}
+      <div id="calendar-wrapper" ref={this.widthRef}>
+        <div
+          className={clsx('rbc-month-view', className)}
+          role="table"
+          aria-label="Month View"
+          style={{ width: fixWidth ? `${fixWidth - 2}px` : '100%' }}
+        >
+          <div className="rbc-row rbc-month-header" role="row">
+            {this.renderHeaders(weeks[0])}
+          </div>
+          {weeks.map(this.renderWeek)}
+          {this.props.popup && this.renderOverlay()}
         </div>
-        {weeks.map(this.renderWeek)}
-        {this.props.popup && this.renderOverlay()}
       </div>
     )
   }
