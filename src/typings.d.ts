@@ -371,7 +371,7 @@ export interface CalendarProps<
   localizer: DateLocalizer
 
   date?: stringOrDate
-  collapse?: string
+  collapse?: boolean
   getNow?: () => Date
   view?: View
   events?: TEvent[]

@@ -21,7 +21,7 @@ import { inRange, sortEvents } from './utils/eventLevels'
 let eventsForWeek = (evts, start, end, accessors, localizer) =>
   evts.filter((e) => inRange(e, start, end, accessors, localizer))
 
-let fixWidth = 0
+let currentWidth = 0
 
 class MonthView extends React.Component {
   constructor(...args) {
@@ -61,11 +61,14 @@ class MonthView extends React.Component {
             this.setState({ needLimitMeasure: true }) //eslint-disable-line
           })
         }
+
+        if (!this.props.collapse)
+          currentWidth = this.widthRef.current.offsetWidth
       }),
       false
     )
 
-    if (!fixWidth) fixWidth = this.widthRef.current.offsetWidth
+    currentWidth = this.widthRef.current.offsetWidth
   }
 
   componentDidUpdate() {
@@ -93,7 +96,13 @@ class MonthView extends React.Component {
           className={clsx('rbc-month-view', className)}
           role="table"
           aria-label="Month View"
-          style={{ width: fixWidth ? `${fixWidth - 2}px` : '100%' }}
+          style={{
+            width:
+              this.props.collapse && currentWidth
+                ? `${currentWidth}px`
+                : '100%',
+            margin: '-1px',
+          }}
         >
           <div className="rbc-row rbc-month-header" role="row">
             {this.renderHeaders(weeks[0])}

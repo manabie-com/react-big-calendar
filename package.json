@@ -1,11 +1,12 @@
 {
-  "name": "mana-calendar",
-  "version": "0.42.2",
+  "name": "@manabie-com/mana-calendar",
+  "version": "0.43.4",
   "description": "Calendar! with events",
   "author": {
     "name": "Jason Quense",
     "email": "monastic.panic@gmail.com"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jquense/react-big-calendar.git"
