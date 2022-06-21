@@ -58,16 +58,16 @@
     "gzipped": 88993
   },
   "mana-calendar.esm.js": {
-    "bundled": 200179,
-    "minified": 93531,
-    "gzipped": 24327,
+    "bundled": 200474,
+    "minified": 93791,
+    "gzipped": 24358,
     "treeshaked": {
       "rollup": {
-        "code": 66631,
+        "code": 66651,
         "import_statements": 1804
       },
       "webpack": {
-        "code": 70415
+        "code": 70435
       }
     }
   }
