@@ -1,6 +1,6 @@
 {
   "name": "@manabie-com/react-big-calendar",
-  "version": "0.43.5",
+  "version": "0.43.7",
   "description": "Calendar! with events",
   "author": {
     "name": "Jason Quense",
@@ -133,5 +133,5 @@
     "url": "https://github.com/jquense/react-big-calendar/issues"
   },
   "homepage": "https://github.com/jquense/react-big-calendar#readme",
-  "_id": "mana-calendar@0.43.4"
+  "_id": "mana-calendar@0.43.7"
 }
