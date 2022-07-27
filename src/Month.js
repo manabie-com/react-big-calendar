@@ -49,6 +49,7 @@ class MonthView extends React.Component {
 
   componentDidMount() {
     let running
+    let windowWidth = window.innerWidth
 
     if (this.state.needLimitMeasure) this.measureRowLimit(this.props)
 
@@ -62,8 +63,17 @@ class MonthView extends React.Component {
           })
         }
 
-        if (!this.props.collapse)
+        if (!this.props.collapse) {
           currentWidth = this.widthRef.current.offsetWidth
+        } else {
+          if (windowWidth > window.innerWidth) {
+            currentWidth = currentWidth - (windowWidth - window.innerWidth)
+          } else {
+            currentWidth = currentWidth + (window.innerWidth - windowWidth)
+          }
+        }
+
+        windowWidth = window.innerWidth
       }),
       false
     )
@@ -101,7 +111,6 @@ class MonthView extends React.Component {
               this.props.collapse && currentWidth
                 ? `${currentWidth}px`
                 : '100%',
-            margin: '-1px',
           }}
         >
           <div className="rbc-row rbc-month-header" role="row">

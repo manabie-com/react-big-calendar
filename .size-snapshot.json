@@ -48,26 +48,26 @@
     }
   },
   "mana-calendar.js": {
-    "bundled": 1583865,
-    "minified": 445412,
-    "gzipped": 137598
+    "bundled": 1584215,
+    "minified": 445503,
+    "gzipped": 137616
   },
   "mana-calendar.min.js": {
-    "bundled": 283568,
-    "minified": 282119,
-    "gzipped": 88993
+    "bundled": 283679,
+    "minified": 282230,
+    "gzipped": 89026
   },
   "mana-calendar.esm.js": {
-    "bundled": 200474,
-    "minified": 93791,
-    "gzipped": 24358,
+    "bundled": 200417,
+    "minified": 93559,
+    "gzipped": 24302,
     "treeshaked": {
       "rollup": {
-        "code": 66651,
+        "code": 66702,
         "import_statements": 1804
       },
       "webpack": {
-        "code": 70435
+        "code": 70486
       }
     }
   }
