@@ -111,6 +111,8 @@ class MonthView extends React.Component {
               this.props.collapse && currentWidth
                 ? `${currentWidth}px`
                 : '100%',
+            marginRight: '-1px',
+            marginLeft: '-1px',
           }}
         >
           <div className="rbc-row rbc-month-header" role="row">
