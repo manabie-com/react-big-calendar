@@ -34,7 +34,7 @@
   text-align: center;
   position: absolute;
 }
-.rbc-addons-dnd .rbc-addons-dnd-resize-ns-anchor:first-child {
+.rbc-addons-dnd .rbc-addons-dnd-resize-ns-anchor:first-of-type {
   top: 0;
 }
 .rbc-addons-dnd .rbc-addons-dnd-resize-ns-anchor:last-child {
@@ -54,7 +54,7 @@
   top: 4px;
   bottom: 0;
 }
-.rbc-addons-dnd .rbc-addons-dnd-resize-ew-anchor:first-child {
+.rbc-addons-dnd .rbc-addons-dnd-resize-ew-anchor:first-of-type {
   left: 0;
 }
 .rbc-addons-dnd .rbc-addons-dnd-resize-ew-anchor:last-child {

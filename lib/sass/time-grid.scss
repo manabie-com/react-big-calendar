@@ -63,7 +63,7 @@
     border-left: 1px solid $cell-border;
   }
 
-  > .rbc-row:first-child {
+  > .rbc-row:first-of-type {
     border-bottom: 1px solid $cell-border;
   }
 
