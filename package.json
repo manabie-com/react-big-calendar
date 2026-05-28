@@ -142,7 +142,8 @@
     "qs": "^6.15.2",
     "ip-address": "^10.1.1",
     "@tootallnate/once": "^3.0.1",
-    "postcss": "^8.5.10"
+    "postcss": "^8.5.10",
+    "braces": "^3.0.3"
   },
   "bugs": {
     "url": "https://github.com/jquense/react-big-calendar/issues"
