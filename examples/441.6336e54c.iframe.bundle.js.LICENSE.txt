@@ -121,6 +121,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 //! stable.js 0.1.8, https://github.com/Two-Screen/stable
 
-//! version : 0.5.45
+//! version : 0.5.48
 
 //! © 2018 Angry Bytes and contributors. MIT licensed.
